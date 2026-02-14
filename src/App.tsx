@@ -35,7 +35,7 @@ function App() {
     );
     const barWidth = width / barCount;
 
-    analyser.getByteFrequencyData(dataArray as Uint8Array<ArrayBuffer>);
+    analyser.getByteFrequencyData(dataArray);
 
     ctx.fillStyle = "rgb(15, 15, 20)";
     ctx.fillRect(0, 0, width, height);
