@@ -80,8 +80,8 @@ function App() {
       const analyser = audioContext.createAnalyser();
       analyser.fftSize = FFT_SIZE;
       analyser.smoothingTimeConstant = SMOOTHING;
-      analyser.minDecibels = -90;
-      analyser.maxDecibels = -10;
+      analyser.minDecibels = -100;
+      analyser.maxDecibels = -30;
       analyserRef.current = analyser;
 
       const source = audioContext.createMediaStreamSource(stream);
@@ -126,7 +126,7 @@ function App() {
         fontFamily: "system-ui, sans-serif",
         maxWidth: 900,
         margin: "0 auto",
-        minHeight: "100vh",
+        minHeight: "95vh",
         background: "linear-gradient(180deg, #0f0f14 0%, #1a1a24 100%)",
         color: "#e0e0e0",
       }}
