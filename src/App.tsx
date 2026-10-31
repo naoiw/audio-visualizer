@@ -9,7 +9,7 @@ export default function App() {
 
   return (
     <div className="site-shell">
-      <main className="dashboard">
+      <div className="dashboard">
         <header className="page-header">
           <div className="brand">
             <span className="brand__mark" aria-hidden="true"><i /><i /><i /><i /></span>
@@ -18,6 +18,7 @@ export default function App() {
           <span className="header-caption">WEB AUDIO API</span>
         </header>
 
+        <main className="page-main">
         <section className="hero" aria-labelledby="page-title">
           <div>
             <p className="eyebrow">AUDIO CAPTURE</p>
@@ -74,6 +75,7 @@ export default function App() {
           </p>
           {error && <p className="error-message" role="alert">{error}</p>}
         </section>
+        </main>
 
         <footer className="page-footer">
           <span>AUDIO VISUALIZER</span>
@@ -81,7 +83,7 @@ export default function App() {
             GitHub ↗
           </a>
         </footer>
-      </main>
+      </div>
     </div>
   );
 }
