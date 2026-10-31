@@ -19,9 +19,9 @@ body { margin: 0; min-width: 320px; }
 button { font: inherit; }
 button:focus-visible, a:focus-visible { outline: 2px solid #76daf5; outline-offset: 3px; }
 .site-shell { min-height: 100vh; background: radial-gradient(circle at 10% -10%, #1c3449, transparent 42%), #0b1220; }
-/* Match the other projects: the footer follows content instead of being pushed to the viewport bottom. */
-.dashboard { width: 100%; max-width: var(--chrome-width); margin: 0 auto; padding: 0 var(--chrome-gutter); }
-.page-main { min-width: 0; }
+/* Keep the footer at the viewport bottom on short pages, or after content on long pages. */
+.dashboard { width: 100%; max-width: var(--chrome-width); min-height: 100vh; margin: 0 auto; padding: 0 var(--chrome-gutter); display: flex; flex-direction: column; }
+.page-main { flex: 1; min-width: 0; }
 .page-header { display: flex; justify-content: space-between; align-items: center; gap: 18px; min-height: var(--chrome-header-height); border-bottom: 1px solid #29364a; }
 .brand { display: flex; align-items: center; gap: 11px; font-size: var(--chrome-brand-size); font-weight: 800; letter-spacing: .02em; color: #9babc5; white-space: nowrap; }
 .brand strong { color: #f6f8ff; font-weight: 800; }
@@ -51,7 +51,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid #76daf5; outline-offs
 .visualizer-canvas { display: block; width: 100%; height: clamp(240px, 35vw, 380px); }
 .plot-scale { display: flex; justify-content: space-between; padding: 8px 20px 13px; color: #748ba7; font-size: .71rem; }
 .panel-meta { display: flex; justify-content: space-between; gap: 12px; padding: 14px 24px; color: #8fa3bd; font-size: .73rem; border-top: 1px solid #293a50; }
-.capture-controls { display: flex; flex-direction: column; align-items: flex-start; padding: 26px 0 45px; gap: 12px; }
+.capture-controls { display: flex; flex-direction: column; align-items: flex-start; padding: 26px 0 40px; gap: 12px; }
 .primary-button { min-height: 45px; border: 1px solid #79e1f5; border-radius: 10px; padding: 10px 22px; background: #5fc9e8; color: #0b192a; font-weight: 700; font-size: .87rem; cursor: pointer; }
 .primary-button:hover:not(:disabled) { background: #8ae8f8; }
 .primary-button:disabled { cursor: wait; opacity: .65; }
@@ -69,7 +69,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid #76daf5; outline-offs
   .panel-toolbar { flex-wrap: wrap; padding: 17px; }
   .visualizer-canvas { height: 250px; }
   .panel-meta { padding: 13px 17px; }
-  .capture-controls { padding-bottom: 30px; }
+  .capture-controls { padding-bottom: 40px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
