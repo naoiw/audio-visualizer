@@ -52,6 +52,9 @@ export function useAudioCapture() {
       if (!navigator.mediaDevices?.getDisplayMedia) {
         throw new Error("このブラウザは画面・音声共有に対応していません。");
       }
+      // Initialize AudioContext during the button gesture to satisfy autoplay policies.
+      context = new AudioContext();
+      if (context.state === "suspended") void context.resume().catch(() => {});
       stream = await navigator.mediaDevices.getDisplayMedia({
         video: true,
         audio: true,
@@ -64,7 +67,6 @@ export function useAudioCapture() {
         throw new Error("音声が共有されていません。共有画面で音声共有を有効にしてください。");
       }
 
-      context = new AudioContext();
       const analyserNode = context.createAnalyser();
       analyserNode.fftSize = FFT_SIZE;
       analyserNode.smoothingTimeConstant = SMOOTHING;
@@ -72,7 +74,6 @@ export function useAudioCapture() {
       analyserNode.maxDecibels = -30;
       context.createMediaStreamSource(stream).connect(analyserNode);
       // Deliberately do not connect to context.destination: it would replay shared audio.
-      if (context.state === "suspended") await context.resume();
       if (requestIdRef.current !== requestId) {
         stream.getTracks().forEach((track) => track.stop());
         void context.close().catch(() => {});
