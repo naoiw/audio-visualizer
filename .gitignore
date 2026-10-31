@@ -1,12 +1,15 @@
+# Dependencies and generated output
 node_modules/
 dist/
 tests/dist/
 *.tsbuildinfo
-.vite/
+
+# Local environment files
 .env
 .env.*
 !.env.example
-*.local
+
+# OS files and logs
 .DS_Store
 Thumbs.db
 *.log
