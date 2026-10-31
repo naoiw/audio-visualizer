@@ -1,4 +1,12 @@
-node_modules
-dist
+node_modules/
+dist/
+tests/dist/
+*.tsbuildinfo
+.vite/
+.env
+.env.*
+!.env.example
 *.local
 .DS_Store
+Thumbs.db
+*.log
