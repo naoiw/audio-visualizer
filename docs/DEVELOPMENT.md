@@ -2,10 +2,10 @@
 
 ## 環境と起動
 
-Node.js 20、pnpm 9を使用します。
+Node.js 26、pnpm 9を使用します。
 
 ```bash
-corepack enable
+npm install --global pnpm@9.14.2
 pnpm install --frozen-lockfile
 pnpm dev
 pnpm test

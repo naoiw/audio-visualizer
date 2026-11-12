@@ -35,13 +35,13 @@
 - **React 18 / TypeScript** — UI・音声取得状態の管理
 - **Web Audio API / Canvas 2D** — `AnalyserNode`による時間波形・FFT解析と描画
 - **Vite / CSS** — 開発サーバー・ビルド・レスポンシブ表示
-- **Node.js 20 / pnpm 9** — 開発・テスト・ビルド
+- **Node.js 26 / pnpm 9** — 開発・テスト・ビルド
 - **GitHub Actions / GitHub Pages** — CIと公開
 
 ## ローカル開発
 
 ```bash
-corepack enable
+npm install --global pnpm@9.14.2
 pnpm install --frozen-lockfile
 pnpm dev     # 開発サーバー
 pnpm test    # 描画計算の回帰テスト
